@@ -19,6 +19,10 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
     protected void initGame() {
         getGameWorld().addEntityFactory(new GameEntityFactory()); //these both use the FXGL static import
         spawn("player", (getAppWidth()/2)-(128),(getAppHeight()/2)-(128));
+        spawn("asteroid", 321, 100);
+        spawn("asteroid", 1500, 50);
+        spawn("asteroid", 902, 704);
+        spawn("asteroid", 702, 304);
     }
     public static void main(String[] args){ //runs app
         launch(args);
