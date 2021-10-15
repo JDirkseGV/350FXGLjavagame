@@ -27,6 +27,12 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
         onKey(KeyCode.A, () -> player.getComponent(PlayerComponent.class).rotateLeft());
         // Move forward
         onKey(KeyCode.W, () -> player.getComponent(PlayerComponent.class).move());
+        // Speed boost
+        onKey(KeyCode.C, () -> player.getComponent(PlayerComponent.class).move());
+        // Strafe Left
+        onKey(KeyCode.LEFT, () -> player.getComponent(PlayerComponent.class).moveLeft());
+        //Strafe Right
+        onKey(KeyCode.RIGHT, () -> player.getComponent(PlayerComponent.class).moveRight());
         // Handle firing projectiles
         onKeyDown(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
     }

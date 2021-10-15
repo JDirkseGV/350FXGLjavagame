@@ -51,7 +51,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
         return entityBuilder()
                 .from(data)
                 .viewWithBBox("projectile.png")
-                .with(new ProjectileComponent(dir, 450))
+                .with(new ProjectileComponent(dir, 500))
                 .build();
     }
 }

@@ -26,6 +26,20 @@ public class PlayerComponent extends Component {
         // Translate sprite in vector direction
         entity.translate(dir);
     }
+    public void moveLeft() {
+        // Grab vector direction sprite is facing
+        Vec2 dir = Vec2.fromAngle(entity.getRotation() - 180)
+                .mulLocal(1);
+        // Translate sprite in vector direction
+        entity.translate(dir);
+    }
+    public void moveRight() {
+        // Grab vector direction sprite is facing
+        Vec2 dir = Vec2.fromAngle(entity.getRotation())
+                .mulLocal(1);
+        // Translate sprite in vector direction
+        entity.translate(dir);
+    }
     public void shoot() {
         Point2D center = entity.getCenter();
 
