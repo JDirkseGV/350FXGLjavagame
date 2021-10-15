@@ -30,7 +30,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
     public Entity newPlayer(SpawnData data) {
         return entityBuilder()
                 .from(data)
-                .viewWithBBox("spaceship.png")
+                .viewWithBBox("smallspaceship.png")
                 .with(new PlayerComponent())
                 .build();
     }
@@ -39,7 +39,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
     public Entity newAsteroid(SpawnData data) {
         return entityBuilder()
                 .from(data)
-                .viewWithBBox("asteroid.png")
+                .viewWithBBox("smallasteroid.png")
                 .with(new RandomMoveComponent(new Rectangle2D(0, 0, getAppWidth(), getAppHeight()), 100))
                 .build();
     }
