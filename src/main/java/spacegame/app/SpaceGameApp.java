@@ -9,9 +9,16 @@ import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+
 public class SpaceGameApp extends GameApplication{ //This class inherits functions from GameApplication from library
 
     private Entity player;
+
+    /**
+     * Initializes game settings, like view window width and height, game name, and version
+     * Protected
+     * @param settings
+     */
     @Override
     protected void initSettings(GameSettings settings){ //overrides to use these settings that defines the game window
         settings.setWidth(2000);
@@ -19,6 +26,11 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
         settings.setTitle("Space Game");
         settings.setVersion("0.1");
     }
+
+    /**
+     * Initializes game inputs for player entity control
+     * Protected
+     */
     @Override
     protected void initInput() { // Initialize key controls
         // Turn Right
@@ -37,15 +49,22 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
         onKeyDown(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
     }
 
+    /**
+     * Initializes game. Calls getGameWorld(), spawns background, player entity, and asteroids
+     */
     @Override
     protected void initGame() {
         getGameWorld().addEntityFactory(new GameEntityFactory()); //these both use the FXGL static import
+        // Spawns background
         spawn("background");
-        player = spawn("player", (getAppWidth()/2)-(128),(getAppHeight()/2)-(128));
+        // Spawns player spaceship
+        player = spawn("player", (getAppWidth()/2)-(64),(getAppHeight()/2)-(64));
+        // Spawns asteroids in set locations every 5 seconds
         run(() -> spawn("asteroid", 321, 100), Duration.seconds(5));
         run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
     }
-    public static void main(String[] args){ //runs app
+    public static void main(String[] args){
+        // runs app
         launch(args);
     }
 }
