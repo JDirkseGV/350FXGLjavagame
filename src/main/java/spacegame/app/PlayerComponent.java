@@ -7,6 +7,9 @@ import javafx.geometry.Point2D;
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.spawn;
 
+/**
+ * Extends Componenet, provides methods for control of player entity
+ */
 public class PlayerComponent extends Component {
     /**
      * On entity spawn, set the origin to the center of the entity

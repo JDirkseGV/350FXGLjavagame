@@ -9,7 +9,9 @@ import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
-
+/**
+ * Main game application class
+ */
 public class SpaceGameApp extends GameApplication{ //This class inherits functions from GameApplication from library
 
     private Entity player;
