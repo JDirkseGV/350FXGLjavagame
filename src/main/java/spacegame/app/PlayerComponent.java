@@ -8,7 +8,7 @@ import javafx.geometry.Point2D;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.spawn;
 
 /**
- * Extends Componenet, provides methods for control of player entity
+ * Extends Component, provides methods for control of player entity
  */
 public class PlayerComponent extends Component {
     /**
