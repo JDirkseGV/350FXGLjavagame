@@ -26,7 +26,7 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
         settings.setWidth(2000);
         settings.setHeight(1000);
         settings.setTitle("Space Game");
-        settings.setVersion("0.1");
+        settings.setVersion("0.2");
     }
 
     /**
