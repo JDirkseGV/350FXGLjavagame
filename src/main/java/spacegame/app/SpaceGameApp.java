@@ -2,11 +2,13 @@ package spacegame.app;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.app.MenuItem;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
+
+import java.util.Map;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -55,6 +57,14 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
     }
 
     /**
+     * Initializes game variables. score, lives, etc
+     * @param vars map containing global vars
+     */
+    protected void initGameVars(Map<String, Object> vars) {
+        vars.put("score", 0);
+    }
+
+    /**
      * Initializes game. Calls getGameWorld(), spawns background, player entity, and asteroids
      */
     @Override
@@ -77,15 +87,30 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
             spawnWithScale(b, Duration.seconds(.5));
         }, Duration.seconds(4.5));
     }
+
+    /**
+     *  sets up collisions and their logic
+     */
     @Override
     protected void initPhysics(){
         onCollisionBegin(EntityType.PROJECTILE, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
             projectile.removeFromWorld();
             debris.removeFromWorld();
+
+            inc("score", +100);
         });
 
+        }
+    /**
+     *  method containing all UI
+     */
+    @Override
+    protected void initUI() {
+        addVarText("score", 50, 50); //adds score counter to game
+
     }
-    public static void main(String[] args){
+
+        public static void main(String[] args){
         // runs app
         launch(args);
     }
