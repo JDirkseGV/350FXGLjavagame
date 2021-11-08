@@ -1,0 +1,463 @@
+17:45:18.096 [main                     ] DEBUG GameApplication      - Logger initialized
+17:45:18.107 [main                     ] DEBUG GameApplication      - Logging settings
+Title: Space Game
+Version: 0.2
+Width: 2000
+Height: 1000
+Fullscreen: false
+Intro: false
+Menus: true
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class com.almasb.fxgl.app.scene.SceneFactory
+
+17:45:18.407 [JavaFX Application Thread] DEBUG GameApplication      - Initializing FXGL
+17:45:18.413 [JavaFX Application Thread] INFO  Engine               - FXGL-11.8 (08.03.2020 09.09) on WINDOWS (J:11.0.8 FX:13.0.2)
+17:45:18.414 [JavaFX Application Thread] INFO  Engine               - Source code and latest versions at: https://github.com/AlmasB/FXGL
+17:45:18.414 [JavaFX Application Thread] INFO  Engine               -              Join the FXGL chat at: https://gitter.im/AlmasB/FXGL
+17:45:18.495 [JavaFX Application Thread] DEBUG MainWindow           - Creating a JavaFX scene
+17:45:18.496 [JavaFX Application Thread] DEBUG MainWindow           - Target size > screen size
+17:45:18.546 [JavaFX Application Thread] DEBUG MainWindow           - Target settings size: 2000.0 x 1000.0
+17:45:18.546 [JavaFX Application Thread] DEBUG MainWindow           - Scaled scene size:    1895.0 x 960.0
+17:45:18.546 [JavaFX Application Thread] DEBUG MainWindow           - Scaled ratio: (0.9475, 0.96)
+17:45:18.547 [JavaFX Application Thread] DEBUG MainWindow           - Set initial scene to FXGLStartupScene
+17:45:18.551 [JavaFX Application Thread] DEBUG MainWindow           - Opening main window
+17:45:18.609 [JavaFX Application Thread] DEBUG MainWindow           - Window border size: (16.0, 39.0)
+17:45:18.610 [JavaFX Application Thread] DEBUG MainWindow           - Scaled size: 1895.0 x 960.0
+17:45:18.610 [JavaFX Application Thread] DEBUG MainWindow           - Scaled ratio: (0.9475, 0.96)
+17:45:18.610 [JavaFX Application Thread] DEBUG MainWindow           - Scene size: 1895.0 x 960.0
+17:45:18.610 [JavaFX Application Thread] DEBUG MainWindow           - Stage size: 1911.0 x 999.0
+17:45:18.615 [FXGL Background Thread 1 ] DEBUG Engine               - Initializing environment variables
+17:45:18.632 [FXGL Background Thread 1 ] DEBUG WindowService        - Applying CSS: fxgl_dark.css
+17:45:18.633 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/css/fxgl_dark.css
+17:45:18.664 [FXGL Background Thread 1 ] DEBUG WindowService        - Initializing application scenes
+17:45:18.690 [FXGL Background Thread 1 ] DEBUG GameWorld            - Game world initialized
+17:45:18.715 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Physics world initialized: appHeight=1000, physics.ppm=50.0
+17:45:18.717 [FXGL Background Thread 1 ] DEBUG GameScene            - Game scene initialized: 2000x1000
+17:45:18.733 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/particles/trace_horizontal.png
+17:45:18.771 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createMenuBodyMainMenu()
+17:45:18.780 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createOptionsMenu()
+17:45:18.783 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/particles/smoke.png
+17:45:18.816 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/particles/trace_horizontal.png@64.0x64.0
+17:45:18.817 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createMenuBodyGameMenu()
+17:45:18.817 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createOptionsMenu()
+17:45:18.819 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/particles/smoke.png@128.0x128.0
+17:45:18.826 [FXGL Background Thread 1 ] DEBUG WindowService        - Application scenes initialized
+17:45:18.831 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Loading FXGL system data
+17:45:18.834 [FXGL Background Thread 1 ] DEBUG FileSystemAccess     - Reading from: C:\Users\xxdee\IdeaProjects\350FXGLjavagame\system\fxgl.bundle
+17:45:18.836 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Bundle FXGL: {}
+17:45:18.836 [FXGL Background Thread 1 ] INFO  Engine               - FXGL initialization took: 0.220 sec
+17:45:18.837 [FXGL Background Thread 1 ] DEBUG GameApplication      - Loading localizations
+17:45:18.838 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/english.properties
+17:45:18.839 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/french.properties
+17:45:18.839 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/german.properties
+17:45:18.840 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/hungarian.properties
+17:45:18.841 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/properties/languages/russian.properties
+17:45:18.842 [FXGL Background Thread 1 ] DEBUG GameApplication      - Registering font factories with UI factory
+17:45:18.842 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/VarelaRound-Regular.ttf
+17:45:19.015 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/Abel-Regular.ttf
+17:45:19.017 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/lucida_console.ttf
+17:45:19.020 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/fonts/Courier-Prime.ttf
+17:45:19.028 [JavaFX Application Thread] DEBUG Input                - Registered new binding: action0 - D
+17:45:19.029 [JavaFX Application Thread] DEBUG Input                - Registered new binding: action1 - A
+17:45:19.029 [JavaFX Application Thread] DEBUG Input                - Registered new binding: action2 - W
+17:45:19.029 [JavaFX Application Thread] DEBUG Input                - Registered new binding: action3 - C
+17:45:19.029 [JavaFX Application Thread] DEBUG Input                - Registered new binding: action4 - Left
+17:45:19.029 [JavaFX Application Thread] DEBUG Input                - Registered new binding: action5 - Right
+17:45:19.030 [JavaFX Application Thread] DEBUG Input                - Registered new binding: action6 - Space
+17:45:19.030 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/fxgl_icon.png
+17:45:19.042 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from file system: /assets/ui/cursors/fxgl_default.png
+17:45:19.043 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Screenshot - P
+17:45:19.043 [JavaFX Application Thread] DEBUG Input                - Registered new binding: System info dump - CTRL+9
+17:45:19.044 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Restart - CTRL+R
+17:45:19.044 [JavaFX Application Thread] DEBUG LoopRunner           - Starting loop
+17:45:19.051 [JavaFX Application Thread] DEBUG FXGLStartupScene     - STARTUP
+17:45:19.054 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:45:19.066 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLStartupScene and adding to FXGLDefaultMenu
+17:45:19.066 [JavaFX Application Thread] DEBUG MainWindow           - FXGLStartupScene -> FXGLDefaultMenu
+17:45:20.327 [JavaFX Application Thread] DEBUG Menu                 - fireNewGame()
+17:45:20.327 [JavaFX Application Thread] DEBUG WindowService        - Starting new game
+17:45:20.328 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:45:20.333 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLDefaultMenu and adding to FXGLLoadingScene
+17:45:20.333 [JavaFX Application Thread] DEBUG MainWindow           - FXGLDefaultMenu -> FXGLLoadingScene
+17:45:20.333 [JavaFX Application Thread] DEBUG WindowService        - Clearing previous game
+17:45:20.333 [JavaFX Application Thread] DEBUG GameScene            - Clearing game scene
+17:45:20.334 [JavaFX Application Thread] DEBUG GameWorld            - Clearing game world
+17:45:20.334 [JavaFX Application Thread] DEBUG PhysicsWorld         - Clearing physics world
+17:45:20.334 [FXGL Background Thread 1 ] DEBUG GameApplication      - Initializing game
+17:45:20.341 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/spacebackground.png
+17:45:20.379 [FXGL Background Thread 1 ] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/smallspaceship.png
+17:45:20.389 [FXGL Background Thread 1 ] INFO  GameApplication      - Game initialization took: 0.054 sec
+17:45:20.389 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:45:20.393 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLLoadingScene and adding to GameScene
+17:45:20.393 [JavaFX Application Thread] DEBUG MainWindow           - FXGLLoadingScene -> GameScene
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - Logging environment variables
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - achievements: []
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - language: ObjectProperty [value: ENGLISH]
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isCloseConfirmation: false
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isProfilingEnabled: false
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - soundNotification: core/notification.wav
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - devShowBBoxProperty: BooleanProperty [value: false]
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - pixelsPerMeter: 50.0
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - soundMenuBack: menu/back.wav
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - appIcon: fxgl_icon.png
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isFullScreenAllowed: false
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isIntroEnabled: false
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - fontMono: lucida_console.ttf
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - soundMenuSelect: menu/select.wav
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isWindows: true
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isUserProfileEnabled: false
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isMobile: false
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - height: 1000
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isExperimentalNative: false
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - settings: Title: Space Game
+Version: 0.2
+Width: 2000
+Height: 1000
+Fullscreen: false
+Intro: false
+Menus: true
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class com.almasb.fxgl.app.scene.SceneFactory
+
+17:45:21.838 [FXGL Background Thread 2 ] DEBUG Engine               - isSingleStep: false
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - cSSList: [fxgl_dark.css]
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - fontGame: Abel-Regular.ttf
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - menuKey: ESCAPE
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - devShowPositionProperty: BooleanProperty [value: false]
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - versionCheckDays: 7
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - configClass: Optional.empty
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - isFullScreenFromStart: false
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - version: 0.2
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - fullScreen: BooleanProperty [value: false]
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - randomSeed: -1
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - gameDifficultyProperty: ObjectProperty [value: MEDIUM]
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - applicationMode: DEVELOPER
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - isMac: false
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - isMenuEnabled: true
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - urlPOM: https://raw.githubusercontent.com/AlmasB/FXGL/master/pom.xml
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - profileName: StringProperty [value: DEFAULT]
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - notificationViewClass: class com.almasb.fxgl.notification.view.XboxNotificationView
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - devSensorColorProperty: ObjectProperty [value: 0xffff00ff]
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - sceneFactory: com.almasb.fxgl.app.scene.SceneFactory@5fa37798
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - stageStyle: DECORATED
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - isManualResizeEnabled: false
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - title: Space Game
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - platform: WINDOWS
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - devBBoxColorProperty: ObjectProperty [value: 0xff0000ff]
+17:45:21.839 [FXGL Background Thread 2 ] DEBUG Engine               - gameDifficulty: MEDIUM
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - isDesktop: true
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - supportedLanguages: [ENGLISH, FRENCH, GERMAN, HUNGARIAN, RUSSIAN]
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - credits: []
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - globalMusicVolumeProperty: DoubleProperty [value: 0.5]
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - isPreserveResizeRatio: false
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - fontText: Courier-Prime.ttf
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - isExperimentalTiledLargeMap: false
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - secondsIn24h: 60
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - runtimeInfo: RuntimeInfo(platform=WINDOWS, version=11.8, build=08.03.2020 09.09)
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - isLinux: false
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - soundMenuPress: menu/press.wav
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - urlGithub: https://github.com/AlmasB/FXGL
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - profileDir: profiles/
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - isDeveloperMenuEnabled: false
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - globalSoundVolumeProperty: DoubleProperty [value: 0.5]
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - mainWindow: com.almasb.fxgl.app.MainWindow@5b9cf8b4
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - isBrowser: false
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - urlLeaderboard: http://fxgl-top.herokuapp.com/
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - globalSoundVolume: 0.5
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - engineServices: [class com.almasb.fxgl.app.GameApplication$GameApplicationService, class com.almasb.fxgl.app.services.WindowService, class com.almasb.fxgl.app.services.FXGLDialogService, class com.almasb.fxgl.app.services.IOTaskExecutorService, class com.almasb.fxgl.event.EventBusService, class com.almasb.fxgl.io.FileSystemService, class com.almasb.fxgl.localization.LocalizationService, class com.almasb.fxgl.app.services.AssetLoaderService, class com.almasb.fxgl.app.services.SystemBundleService, class com.almasb.fxgl.profile.SaveLoadService, class com.almasb.fxgl.ui.FXGLUIFactoryServiceProvider, class com.almasb.fxgl.ui.FXGLDialogFactoryServiceProvider, class com.almasb.fxgl.audio.AudioPlayer, class com.almasb.fxgl.notification.impl.NotificationServiceProvider, class com.almasb.fxgl.achievement.AchievementService, class com.almasb.fxgl.cutscene.CutsceneService, class com.almasb.fxgl.minigames.MiniGameService, class com.almasb.fxgl.net.NetService, class com.almasb.fxgl.app.services.UpdaterService]
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - globalMusicVolume: 0.5
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - width: 2000
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - saveFileExt: sav
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - isAndroid: false
+17:45:21.840 [FXGL Background Thread 2 ] DEBUG Engine               - fontUI: VarelaRound-Regular.ttf
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - enabledMenuItems: []
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - isIOS: false
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - Logging services
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.app.GameApplication$GameApplicationService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.app.services.WindowService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.app.services.FXGLDialogService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.app.services.IOTaskExecutorService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.event.EventBusService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.io.FileSystemService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.localization.LocalizationService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.app.services.AssetLoaderService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.app.services.SystemBundleService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.profile.SaveLoadService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.ui.FXGLUIFactoryServiceProvider
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.ui.FXGLDialogFactoryServiceProvider
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.audio.AudioPlayer
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.notification.impl.NotificationServiceProvider
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.achievement.AchievementService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.cutscene.CutsceneService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.minigames.MiniGameService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.net.NetService
+17:45:21.841 [FXGL Background Thread 2 ] DEBUG Engine               - class com.almasb.fxgl.app.services.UpdaterService
+17:45:22.903 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/smallasteroid.png
+17:45:22.907 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:24.935 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:24.936 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:26.447 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from file system: /assets/textures/projectile.png
+17:45:26.959 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:26.960 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:27.760 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:28.493 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:28.982 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:28.982 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:29.473 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:30.177 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:31.016 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:31.017 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:32.017 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:32.977 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:33.063 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:33.063 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:33.166 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:33.343 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:33.537 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:34.093 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:34.289 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:35.069 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:35.095 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:35.096 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:35.281 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:35.466 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:35.729 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:35.953 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:36.201 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:36.443 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:36.722 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:37.128 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:37.128 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:37.313 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:37.601 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:38.217 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:38.401 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:38.665 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:39.172 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:39.172 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:39.361 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:39.569 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:40.242 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:40.430 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:40.665 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:41.154 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:41.205 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:41.206 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:41.390 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:42.305 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:42.511 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:43.253 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:43.253 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:43.329 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:44.097 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:44.333 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:44.545 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:44.785 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:45.275 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:45.288 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:45.288 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:46.862 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:47.335 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:47.335 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:47.873 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:48.449 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:49.368 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:49.368 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:50.049 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:51.067 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:51.400 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:51.400 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:51.665 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:52.332 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:52.737 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:53.361 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:53.447 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:53.447 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:53.679 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:53.898 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:54.209 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:54.429 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:54.640 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:55.129 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:55.355 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:55.496 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:55.496 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:55.627 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:56.176 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:56.589 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:56.793 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:57.233 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:57.489 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:57.544 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:57.544 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:57.937 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:58.140 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:58.433 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:59.041 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:59.249 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:59.517 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:45:59.592 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:59.592 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:45:59.712 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:00.763 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:01.201 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:01.441 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:01.624 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:01.624 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:01.633 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:01.842 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:02.097 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:02.576 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:02.891 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:03.265 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:03.473 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:03.683 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:03.684 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:03.936 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:04.154 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:05.345 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:05.599 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:05.716 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:05.716 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:05.793 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:06.384 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:06.593 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:06.848 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:07.066 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:07.419 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:07.751 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:07.751 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:08.017 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:08.241 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:08.652 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:08.912 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:09.497 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:09.745 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:09.800 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:09.800 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:10.017 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:10.321 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:10.561 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:10.734 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:10.913 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:11.340 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:11.760 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:11.844 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:11.844 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:11.945 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:12.160 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:12.401 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:12.592 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:12.831 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:13.168 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:13.713 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:13.876 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:13.876 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:13.920 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:14.144 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:14.348 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:14.849 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:15.090 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:15.530 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:15.909 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:15.909 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:16.170 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:16.827 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:17.265 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:17.721 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:17.943 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:17.943 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:18.145 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:18.428 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:18.672 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:18.865 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:19.905 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:19.990 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:19.991 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:20.145 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:20.465 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:20.969 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:21.180 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:21.985 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:22.024 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:22.024 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:22.257 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:22.529 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:22.833 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:23.113 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:23.881 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:24.071 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:24.071 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:24.300 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:24.953 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:25.553 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:26.099 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:26.100 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:26.193 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:26.411 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:26.945 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:27.441 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:27.645 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:28.113 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:28.120 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:28.120 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:28.329 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:28.641 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:28.849 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:29.053 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:29.457 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:29.744 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:29.996 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:30.152 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:30.152 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:30.305 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:30.910 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:31.450 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:32.183 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:32.183 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:32.320 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:32.488 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:32.914 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:33.441 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:33.929 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:34.124 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/projectile.png
+17:46:34.199 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:34.199 [JavaFX Application Thread] DEBUG AssetLoaderService   - Loading from cache: /assets/textures/smallasteroid.png
+17:46:35.009 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:46:35.013 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from GameScene and adding to FXGLDefaultMenu
+17:46:35.013 [JavaFX Application Thread] DEBUG MainWindow           - GameScene -> FXGLDefaultMenu
+17:46:36.479 [JavaFX Application Thread] DEBUG Menu                 - fireExitToMainMenu()
+17:46:36.481 [JavaFX Application Thread] DEBUG MainWindow           - Push state: DialogSubScene
+17:46:36.481 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:46:36.482 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLDefaultMenu and adding to DialogSubScene
+17:46:36.482 [JavaFX Application Thread] DEBUG MainWindow           - FXGLDefaultMenu -> DialogSubScene
+17:46:37.124 [JavaFX Application Thread] DEBUG MainWindow           - Pop state: DialogSubScene
+17:46:37.124 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:46:37.124 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from DialogSubScene and adding to FXGLDefaultMenu
+17:46:37.124 [JavaFX Application Thread] DEBUG MainWindow           - FXGLDefaultMenu <- DialogSubScene
+17:46:37.124 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:46:37.128 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLDefaultMenu and adding to FXGLDefaultMenu
+17:46:37.128 [JavaFX Application Thread] DEBUG MainWindow           - FXGLDefaultMenu -> FXGLDefaultMenu
+17:46:39.150 [JavaFX Application Thread] DEBUG Menu                 - fireExit()
+17:46:39.151 [JavaFX Application Thread] DEBUG MainWindow           - Push state: DialogSubScene
+17:46:39.151 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:46:39.152 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from FXGLDefaultMenu and adding to DialogSubScene
+17:46:39.152 [JavaFX Application Thread] DEBUG MainWindow           - FXGLDefaultMenu -> DialogSubScene
+17:46:39.651 [JavaFX Application Thread] DEBUG MainWindow           - Pop state: DialogSubScene
+17:46:39.651 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+17:46:39.652 [JavaFX Application Thread] DEBUG WindowService        - Removing overlay from DialogSubScene and adding to FXGLDefaultMenu
+17:46:39.652 [JavaFX Application Thread] DEBUG MainWindow           - FXGLDefaultMenu <- DialogSubScene
+17:46:39.652 [JavaFX Application Thread] DEBUG GameApplication      - Exiting FXGL
+17:46:39.652 [JavaFX Application Thread] DEBUG LoopRunner           - Stopping loop
+17:46:39.652 [JavaFX Application Thread] DEBUG SystemBundleService  - Saving FXGL system data
+17:46:39.653 [JavaFX Application Thread] DEBUG FileSystemAccess     - Writing to: C:\Users\xxdee\IdeaProjects\350FXGLjavagame\system\fxgl.bundle
+17:46:39.654 [JavaFX Application Thread] DEBUG GameApplication      - Shutting down background threads
+17:46:39.654 [JavaFX Application Thread] DEBUG GameApplication      - Closing logger and exiting JavaFX

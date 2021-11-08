@@ -4,6 +4,7 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.SpawnData;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
@@ -64,12 +65,21 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
         // Spawns player spaceship
         player = spawn("player", (getAppWidth()/2)-(64),(getAppHeight()/2)-(64));
         // Spawns asteroids in set locations every 5 seconds
-        run(() -> spawn("asteroid", 321, 100), Duration.seconds(5));
-        run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
+        // run(() -> spawn("asteroid", 321, 100), Duration.seconds(5));
+        //run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
+        run(() -> {
+            Entity a = getGameWorld().create("asteroid", new SpawnData(321, 100));
+            spawnWithScale(a, Duration.seconds(.5));
+        }, Duration.seconds(4));
+
+        run(() -> {
+            Entity b = getGameWorld().create("asteroid", new SpawnData(1700, 700));
+            spawnWithScale(b, Duration.seconds(.5));
+        }, Duration.seconds(4));
     }
     @Override
     protected void initPhysics(){
-        onCollisionBegin(EntityType.PROJECTILE, EntityType.DEBRIS, (projectile, debris) -> {
+        onCollisionBegin(EntityType.PROJECTILE, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
             projectile.removeFromWorld();
             debris.removeFromWorld();
         });
