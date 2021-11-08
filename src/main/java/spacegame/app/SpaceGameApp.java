@@ -25,6 +25,8 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
     protected void initSettings(GameSettings settings){ //overrides to use these settings that defines the game window
         settings.setWidth(2000);
         settings.setHeight(1000);
+        settings.setMenuEnabled(true);
+        //settings.setTicksPerSecond(60);
         settings.setTitle("Space Game");
         settings.setVersion("0.2");
     }
@@ -64,6 +66,14 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
         // Spawns asteroids in set locations every 5 seconds
         run(() -> spawn("asteroid", 321, 100), Duration.seconds(5));
         run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
+    }
+    @Override
+    protected void initPhysics(){
+        onCollisionBegin(EntityType.PROJECTILE, EntityType.DEBRIS, (projectile, debris) -> {
+            projectile.removeFromWorld();
+            debris.removeFromWorld();
+        });
+
     }
     public static void main(String[] args){
         // runs app

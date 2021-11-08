@@ -1,6 +1,7 @@
 package spacegame.app;
 
 import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.dsl.components.RandomMoveComponent;
 import com.almasb.fxgl.entity.Entity;
@@ -45,9 +46,11 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
         // Creates a bounding box around the png
         // Atachess PlayerComponent
         return entityBuilder()
+                .type(EntityType.PLAYER)
                 .from(data)
                 .viewWithBBox("smallspaceship.png")
                 .with(new PlayerComponent())
+                .collidable()
                 .build();
     }
     /**
@@ -60,9 +63,11 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
         // Constructs an asteroid from smallasteroid.png with a bounding box
         // Adds a RandomMoveComponent with a bounding Rectangle2D object to each spawned asteroid
         return entityBuilder()
+                .type(EntityType.DEBRIS)
                 .from(data)
                 .viewWithBBox("smallasteroid.png")
                 .with(new RandomMoveComponent(new Rectangle2D(0, 0, getAppWidth(), getAppHeight()), 100))
+                .collidable()
                 .build();
     }
     /**
@@ -77,9 +82,12 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
         // Creates a projectile entity with projectile.png and bound box
         // Projectile built from ProjectileComponent class, provided with vector dir and speed
         return entityBuilder()
+                .type(EntityType.PROJECTILE)
                 .from(data)
                 .viewWithBBox("projectile.png")
                 .with(new ProjectileComponent(dir, 400))
+                .with(new OffscreenCleanComponent())
+                .collidable()
                 .build();
     }
 }
