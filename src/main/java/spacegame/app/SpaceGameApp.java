@@ -70,12 +70,12 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
         run(() -> {
             Entity a = getGameWorld().create("asteroid", new SpawnData(321, 100));
             spawnWithScale(a, Duration.seconds(.5));
-        }, Duration.seconds(4));
+        }, Duration.seconds(5));
 
         run(() -> {
             Entity b = getGameWorld().create("asteroid", new SpawnData(1700, 700));
             spawnWithScale(b, Duration.seconds(.5));
-        }, Duration.seconds(4));
+        }, Duration.seconds(4.5));
     }
     @Override
     protected void initPhysics(){
