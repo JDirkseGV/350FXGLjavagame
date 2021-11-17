@@ -1,6 +1,9 @@
 package spacegame.app;
 
+import com.almasb.fxgl.animation.Interpolators;
 import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.dsl.FXGLForKtKt;
+import com.almasb.fxgl.dsl.components.ExpireCleanComponent;
 import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.dsl.components.RandomMoveComponent;
@@ -11,7 +14,8 @@ import com.almasb.fxgl.entity.Spawns;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.shape.Rectangle;
-
+import javafx.util.Duration;
+import com.almasb.fxgl.dsl.AnimationBuilder;
 
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
@@ -89,5 +93,30 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .with(new OffscreenCleanComponent())
                 .collidable()
                 .build();
+    }
+
+    @Spawns("explosion")
+    public Entity newExplosion(SpawnData data){
+        play("explosion.wav");
+        return entityBuilder()
+                .from(data)
+                .view(texture("explosion.png").toAnimatedTexture(16, Duration.seconds(0.66)).play())
+                .with(new ExpireCleanComponent(Duration.seconds(0.66)))
+                .build();
+
+    }
+
+    @Spawns("scoreText")
+    public Entity newScoreText(SpawnData data){
+        String text = data.get("text");
+
+        var e = entityBuilder()
+                .from(data)
+                .view(getUIFactory().newText(text, 24))
+                .with(new ExpireCleanComponent(Duration.seconds(0.66)))
+                .build();
+
+        return e;
+
     }
 }

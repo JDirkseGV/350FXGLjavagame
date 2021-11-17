@@ -61,7 +61,9 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
      * @param vars map containing global vars
      */
     protected void initGameVars(Map<String, Object> vars) {
+
         vars.put("score", 0);
+        vars.put("lives", 3);
     }
 
     /**
@@ -69,6 +71,7 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
      */
     @Override
     protected void initGame() {
+        getSettings().setGlobalSoundVolume(0.1);
         getGameWorld().addEntityFactory(new GameEntityFactory()); //these both use the FXGL static import
         // Spawns background
         spawn("background");
@@ -93,21 +96,35 @@ public class SpaceGameApp extends GameApplication{ //This class inherits functio
      */
     @Override
     protected void initPhysics(){
-        onCollisionBegin(EntityType.PROJECTILE, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
-            projectile.removeFromWorld();
-            debris.removeFromWorld();
 
+        onCollisionBegin(EntityType.PROJECTILE, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
+            spawn("scoreText", new SpawnData(debris.getX(), debris.getY()).put("text", "+100"));
+            killDebris(debris);
+            projectile.removeFromWorld();
             inc("score", +100);
         });
 
+        onCollisionBegin(EntityType.PLAYER, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
+            killDebris(debris);
+            inc("lives", -1);
+
+            player.setPosition(getAppWidth()/2, getAppHeight()/2);
+        });
+
         }
+
+    private void killDebris(Entity debris) {
+        spawn("explosion", debris.getPosition());
+        debris.removeFromWorld();
+    }
+
     /**
      *  method containing all UI
      */
     @Override
     protected void initUI() {
         addVarText("score", 50, 50); //adds score counter to game
-
+        addVarText("lives", 50, 70);
     }
 
         public static void main(String[] args){
