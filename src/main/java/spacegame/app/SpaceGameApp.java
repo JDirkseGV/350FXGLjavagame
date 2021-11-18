@@ -130,12 +130,12 @@ public class SpaceGameApp extends GameApplication{
 
                 Entity a = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(50,300)));
                 spawnWithScale(a, Duration.seconds(.5));
-            }, Duration.seconds(random(1,3)));
+            }, Duration.seconds(random(0,2)));
 
             run(() -> {
                 Entity b = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(780,1030)));
                 spawnWithScale(b, Duration.seconds(.5));
-            }, Duration.seconds(random(1,3)));
+            }, Duration.seconds(1));
 
 
     }

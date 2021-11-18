@@ -73,7 +73,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .type(EntityType.DEBRIS)
                 .from(data)
                 .viewWithBBox("smallasteroid.png")
-                .with(new RandomMoveComponent(new Rectangle2D(0, 0, getAppWidth(), getAppHeight()), 100))
+                .with(new RandomMoveComponent(new Rectangle2D(0, 0, getAppWidth(), getAppHeight()), 200))
                 .collidable()
                 .build();
     }
@@ -92,7 +92,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .type(EntityType.PROJECTILE)
                 .from(data)
                 .viewWithBBox("projectile.png")
-                .with(new ProjectileComponent(dir, 400))
+                .with(new ProjectileComponent(dir, 800))
                 .with(new OffscreenCleanComponent())
                 .collidable()
                 .build();

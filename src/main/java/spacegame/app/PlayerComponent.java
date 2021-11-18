@@ -22,13 +22,13 @@ public class PlayerComponent extends Component {
      * Rotate player entity to the right 2.5 degrees on method call
      */
     public void rotateRight() {
-        entity.rotateBy(2.5);
+        entity.rotateBy(5);
     }
     /**
      * Rotate player entity to the left 2.5 degrees on method call
      */
     public void rotateLeft() {
-        entity.rotateBy(-2.5);
+        entity.rotateBy(-5);
     }
     /**
      * Move player entity in direction it is facing
@@ -36,7 +36,7 @@ public class PlayerComponent extends Component {
     public void move() {
         // Grab vector direction sprite is facing
         Vec2 dir = Vec2.fromAngle(entity.getRotation() - 90)
-                .mulLocal(2.5);
+                .mulLocal(5);
         // Translate sprite in vector direction
         entity.translate(dir);
     }
@@ -46,7 +46,7 @@ public class PlayerComponent extends Component {
     public void moveLeft() {
         // Grab vector direction sprite is facing
         Vec2 dir = Vec2.fromAngle(entity.getRotation() - 180)
-                .mulLocal(1);
+                .mulLocal(2);
         // Translate sprite in vector direction
         entity.translate(dir);
     }
@@ -56,7 +56,7 @@ public class PlayerComponent extends Component {
     public void moveRight() {
         // Grab vector direction sprite is facing
         Vec2 dir = Vec2.fromAngle(entity.getRotation())
-                .mulLocal(1);
+                .mulLocal(2);
         // Translate sprite in vector direction
         entity.translate(dir);
     }
