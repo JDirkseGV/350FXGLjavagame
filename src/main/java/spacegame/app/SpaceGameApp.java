@@ -3,6 +3,7 @@ package spacegame.app;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.app.MenuItem;
+import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.core.serialization.Bundle;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
@@ -25,8 +26,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-import java.util.EnumSet;
-import java.util.Map;
+import java.util.*;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -40,7 +40,7 @@ import static com.almasb.fxgl.dsl.FXGL.*;
  */
 
 public class SpaceGameApp extends GameApplication{
-    private static final Object SAVE_FILE_NAME = "SpaceGameSave"; //This class inherits functions from GameApplication from library
+
 
     private Entity player;
 
@@ -54,7 +54,7 @@ public class SpaceGameApp extends GameApplication{
         vars.put("highScore", 0);
         vars.put("time", 0.0);
         vars.put("score", 0);
-        vars.put("lives", 3);
+        vars.put("lives", 5);
     }
 
 
@@ -65,8 +65,11 @@ public class SpaceGameApp extends GameApplication{
      */
     @Override
     protected void initSettings(GameSettings settings){ //overrides to use these settings that defines the game window
-        settings.setWidth(2000);
-        settings.setHeight(1000);
+        settings.setWidth(1920);
+        settings.setHeight(1080);
+        settings.setManualResizeEnabled(true);
+        //settings.isFullScreenAllowed();
+        //settings.isFullScreenFromStart();
         //settings.setUserProfileEnabled(true);
         settings.setEnabledMenuItems(EnumSet.allOf(MenuItem.class));
         settings.setMenuEnabled(true);
@@ -98,12 +101,19 @@ public class SpaceGameApp extends GameApplication{
         onKeyDown(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
     }
 
-
+    private static Random random = new Random();
+    public static void setRandom(Random random) {
+        SpaceGameApp.random = random;
+    }
+    public static int random(int start, int end) {
+        return start + random.nextInt(end - start + 1);
+    }
     /**
      * Initializes game. Calls getGameWorld(), spawns background, player entity, and asteroids
      */
     @Override
     protected void initGame() {
+
         run(() -> inc("time", 1.0), Duration.seconds(1.0));
         getSettings().setGlobalSoundVolume(0.1);
         getGameWorld().addEntityFactory(new GameEntityFactory()); //these both use the FXGL static import
@@ -111,18 +121,23 @@ public class SpaceGameApp extends GameApplication{
         spawn("background");
         // Spawns player spaceship
         player = spawn("player", (getAppWidth()/2)-(64),(getAppHeight()/2)-(64));
+
         // Spawns asteroids in set locations every 5 seconds
         // run(() -> spawn("asteroid", 321, 100), Duration.seconds(5));
         //run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
-        run(() -> {
-            Entity a = getGameWorld().create("asteroid", new SpawnData(321, 100));
-            spawnWithScale(a, Duration.seconds(.5));
-        }, Duration.seconds(5));
 
-        run(() -> {
-            Entity b = getGameWorld().create("asteroid", new SpawnData(1700, 700));
-            spawnWithScale(b, Duration.seconds(.5));
-        }, Duration.seconds(4.5));
+            run(() -> {
+
+                Entity a = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(50,300)));
+                spawnWithScale(a, Duration.seconds(.5));
+            }, Duration.seconds(random(1,3)));
+
+            run(() -> {
+                Entity b = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(780,1030)));
+                spawnWithScale(b, Duration.seconds(.5));
+            }, Duration.seconds(random(1,3)));
+
+
     }
 
     /**
@@ -140,12 +155,13 @@ public class SpaceGameApp extends GameApplication{
 
         onCollisionBegin(EntityType.PLAYER, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
             killDebris(debris);
+            spawn("explosion", player.getPosition());
             inc("lives", -1);
             if(geti("lives") <= 0){
                 gameOver();
             }
 
-            player.setPosition(getAppWidth()/2, getAppHeight()/2);
+
         });
 
         }

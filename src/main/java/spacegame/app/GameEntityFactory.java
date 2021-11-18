@@ -38,7 +38,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
         // Uses spacebackground.png as a resource
         return entityBuilder()
                 .from(data)
-                .view("spacebackground.png")
+                .view("newbackground.jpg")
                 .build();
     }
     /**
