@@ -16,6 +16,9 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import com.almasb.fxgl.dsl.AnimationBuilder;
+import javafx.animation.Interpolator;
+import com.almasb.fxgl.animation.EasingInterpolator;
+import com.almasb.fxgl.animation.Interpolators;
 
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
@@ -115,6 +118,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .view(getUIFactory().newText(text, 24))
                 .with(new ExpireCleanComponent(Duration.seconds(0.66)))
                 .build();
+
 
         return e;
 
