@@ -123,6 +123,11 @@ public class SpaceGameApp extends GameApplication{
         // Spawns player spaceship
         player = spawn("player", (getAppWidth()/2)-(64),(getAppHeight()/2)-(64));
 
+        int distx = 960;
+        int disty = 540;
+        getGameScene().getViewport().setBounds(-distx, -disty, getAppWidth() + distx, getAppHeight() + disty);
+        getGameScene().getViewport().bindToEntity(player, (getAppWidth() / 2)-(64), (getAppHeight() / 2)-(64));
+
         // Spawns asteroids in set locations every 5 seconds
         // run(() -> spawn("asteroid", 321, 100), Duration.seconds(5));
         //run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
