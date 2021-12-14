@@ -119,7 +119,7 @@ public class SpaceGameApp extends GameApplication{
         getSettings().setGlobalSoundVolume(0.1);
         getGameWorld().addEntityFactory(new GameEntityFactory()); //these both use the FXGL static import
         // Spawns background
-        spawn("background");
+        spawn("background", -960, -540);
         // Spawns player spaceship
         player = spawn("player", (getAppWidth()/2)-(64),(getAppHeight()/2)-(64));
 
@@ -133,8 +133,32 @@ public class SpaceGameApp extends GameApplication{
         //run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
 
         run(() -> {
-            int x = random(0,1920);
-            int y = random(0,1080);
+            int x = random(0,3840);
+            int y = random(0,2160);
+            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
+                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
+                spawnWithScale(a, Duration.seconds(.5));
+            }
+            else{
+                Entity a = getGameWorld().create("asteroid", new SpawnData(0, 0));
+                spawnWithScale(a, Duration.seconds(.5));
+            }
+        }, Duration.seconds(1));
+        run(() -> {
+            int x = random(0,3840);
+            int y = random(0,2160);
+            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
+                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
+                spawnWithScale(a, Duration.seconds(.5));
+            }
+            else{
+                Entity a = getGameWorld().create("asteroid", new SpawnData(0, 0));
+                spawnWithScale(a, Duration.seconds(.5));
+            }
+        }, Duration.seconds(1));
+        run(() -> {
+            int x = random(0,3840);
+            int y = random(0,2160);
             if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
                 Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
                 spawnWithScale(a, Duration.seconds(.5));
@@ -146,8 +170,8 @@ public class SpaceGameApp extends GameApplication{
         }, Duration.seconds(1));
 
         run(() -> {
-            int x = random(0,1920);
-            int y = random(0,1080);
+            int x = random(0,3840);
+            int y = random(0,2160);
             if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
                 Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
                 spawnWithScale(a, Duration.seconds(.5));
@@ -159,8 +183,15 @@ public class SpaceGameApp extends GameApplication{
         }, Duration.seconds(1));
 
         run(() -> {
-
-            Entity a = getGameWorld().create("gunUpgrade", new SpawnData(random(50,1850), random(50,900)));
+            int x = random(0,3840);
+            int y = random(0,2160);
+            Entity a = getGameWorld().create("gunUpgrade", new SpawnData(x, y));
+            spawnWithScale(a, Duration.seconds(.5));
+        }, Duration.seconds(15));
+        run(() -> {
+            int x = random(0,3840);
+            int y = random(0,2160);
+            Entity a = getGameWorld().create("gunUpgrade", new SpawnData(x, y));
             spawnWithScale(a, Duration.seconds(.5));
         }, Duration.seconds(15));
 
@@ -179,8 +210,8 @@ public class SpaceGameApp extends GameApplication{
             projectile.removeFromWorld();
             inc("score", +100);
             run(() -> {
-                int x = random(0,1920);
-                int y = random(0,1080);
+                int x = random(0,3840);
+                int y = random(0,2160);
                 if((Math.abs(player.getX()-x) > 120) && (Math.abs(player.getY()-y) > 120)){
                     Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
                     spawnWithScale(a, Duration.seconds(.5));

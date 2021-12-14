@@ -38,7 +38,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
         // Uses spacebackground.png as a resource
         return entityBuilder()
                 .from(data)
-                .view("newbackground.jpg")
+                .view("openspace.jpg")
                 .build();
     }
     /**
@@ -73,7 +73,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .type(EntityType.DEBRIS)
                 .from(data)
                 .viewWithBBox("smallasteroid.png")
-                .with(new RandomMoveComponent(new Rectangle2D(0, 0, getAppWidth(), getAppHeight()), 200))
+                .with(new RandomMoveComponent(new Rectangle2D(-960, -540, 3840, 2160), 200))
                 .collidable()
                 .build();
     }
@@ -86,7 +86,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .type(EntityType.UPGRADE)
                 .from(data)
                 .viewWithBBox("lives.png")
-                .with(new RandomMoveComponent(new Rectangle2D(0, 0, getAppWidth(), getAppHeight()), 50))
+                .with(new RandomMoveComponent(new Rectangle2D(-960, -540, 2880, 1620), 50))
                 .collidable()
                 .build();
     }
