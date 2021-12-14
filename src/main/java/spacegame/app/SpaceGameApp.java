@@ -70,7 +70,7 @@ public class SpaceGameApp extends GameApplication{
         settings.setManualResizeEnabled(true);
         settings.setEnabledMenuItems(EnumSet.allOf(MenuItem.class));
         settings.setMenuEnabled(true);
-        settings.setTitle("Space Blaster 3000");
+        settings.setTitle("SpaceBlaster 3000");
         settings.setVersion("1.0");
     }
 
@@ -93,7 +93,7 @@ public class SpaceGameApp extends GameApplication{
         //Strafe Right
         onKey(KeyCode.RIGHT, () -> player.getComponent(PlayerComponent.class).moveRight());
         // Handle firing projectiles
-        onKey(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
+        onKeyDown(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
     }
 
     //custom implementation of RNG for finer control than the library allows
@@ -206,6 +206,7 @@ public class SpaceGameApp extends GameApplication{
             killDebris(debris);
             projectile.removeFromWorld();
             inc("score", +100);
+
             //this sets up logic to double the spawn rate of asteroids every 45 seconds and puts the game on an exponential difficulty scale.
             run(() -> {
                 int x = random(0,3840);
