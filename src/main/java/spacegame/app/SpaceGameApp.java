@@ -55,6 +55,7 @@ public class SpaceGameApp extends GameApplication{
         vars.put("time", 0.0);
         vars.put("score", 0);
         vars.put("lives", 5);
+        vars.put("final", 0);
     }
 
 
@@ -98,7 +99,7 @@ public class SpaceGameApp extends GameApplication{
         //Strafe Right
         onKey(KeyCode.RIGHT, () -> player.getComponent(PlayerComponent.class).moveRight());
         // Handle firing projectiles
-        onKeyDown (KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
+        onKey(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
     }
 
     private static Random random = new Random();
@@ -126,16 +127,31 @@ public class SpaceGameApp extends GameApplication{
         // run(() -> spawn("asteroid", 321, 100), Duration.seconds(5));
         //run(() -> spawn("asteroid", 1700, 700), Duration.seconds(5));
 
-            run(() -> {
-
-                Entity a = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(50,300)));
+        run(() -> {
+            int x = random(0,1920);
+            int y = random(0,1080);
+            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
+                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
                 spawnWithScale(a, Duration.seconds(.5));
-            }, Duration.seconds(1));
+            }
+            else{
+                Entity a = getGameWorld().create("asteroid", new SpawnData(0, 0));
+                spawnWithScale(a, Duration.seconds(.5));
+            }
+        }, Duration.seconds(1));
 
-            run(() -> {
-                Entity b = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(780,1030)));
-                spawnWithScale(b, Duration.seconds(.5));
-            }, Duration.seconds(1));
+        run(() -> {
+            int x = random(0,1920);
+            int y = random(0,1080);
+            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
+                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
+                spawnWithScale(a, Duration.seconds(.5));
+            }
+            else{
+                Entity a = getGameWorld().create("asteroid", new SpawnData(1920, 1080));
+                spawnWithScale(a, Duration.seconds(.5));
+            }
+        }, Duration.seconds(1));
 
         run(() -> {
 
@@ -158,18 +174,37 @@ public class SpaceGameApp extends GameApplication{
             projectile.removeFromWorld();
             inc("score", +100);
             run(() -> {
-
-                Entity a = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(50,900)));
-                spawnWithScale(a, Duration.seconds(.5));
+                int x = random(0,1920);
+                int y = random(0,1080);
+                if((Math.abs(player.getX()-x) > 120) && (Math.abs(player.getY()-y) > 120)){
+                    Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
+                    spawnWithScale(a, Duration.seconds(.5));
+                }
+                else{
+                    Entity a = getGameWorld().create("asteroid", new SpawnData(0, 1080));
+                    spawnWithScale(a, Duration.seconds(.5));
+                }
             }, Duration.seconds(45));
         });
 
-        onCollisionBegin(EntityType.PLAYER, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
+        onCollisionBegin(EntityType.PLAYER, EntityType.DEBRIS, (player, debris) -> { //if bullet and asteroid collide, remove both
             killDebris(debris);
             spawn("explosion", player.getPosition());
             inc("lives", -1);
             if(geti("lives") <= 0){
-                gameOver();
+                run(() -> {
+                    if (geti("final") < 1) {
+                        spawn("explosion", new SpawnData(player.getX() + 25, player.getY() + 25));
+                        spawn("explosion", new SpawnData(player.getX() - 25, player.getY() - 25));
+                        spawn("explosion", new SpawnData(player.getX() + 25, player.getY() - 25));
+                        spawn("explosion", new SpawnData(player.getX() - 25, player.getY() + 25));
+                        inc("final", 1);
+                    }
+                    else{
+                        player.removeFromWorld();
+                        gameOver();
+                    }
+                }, Duration.seconds(1));
             }
 
 
@@ -177,8 +212,6 @@ public class SpaceGameApp extends GameApplication{
         onCollisionBegin(EntityType.PLAYER, EntityType.UPGRADE, (player, upgrade) -> { //if bullet and asteroid collide, remove both
             upgrade.removeFromWorld();
             inc("lives", +1);
-
-
             run(() -> {
                 player.getComponent(PlayerComponent.class).shoot();
 
@@ -191,7 +224,7 @@ public class SpaceGameApp extends GameApplication{
 
         });
 
-        }
+    }
 
     private void killDebris(Entity debris) {
         spawn("explosion", debris.getPosition());
@@ -246,13 +279,13 @@ public class SpaceGameApp extends GameApplication{
 
 
     }
-    private void gameOver() {
+    private void gameOver(){
         getGameController().gotoMainMenu();
         //add ship getting destroyed animation before switching to endgame
         if(geti("highScore") < geti("score")){
-        getDialogService().showInputBox("Your score:" + geti("score") + "\nEnter your name", s -> s.matches("[a-zA-Z]*"), name -> {
+            getDialogService().showInputBox("Your score:" + geti("score") + "\nEnter your name", s -> s.matches("[a-zA-Z]*"), name -> {
 
-            SaveData data = new SaveData();
+                SaveData data = new SaveData();
 
 
                 data.name = name;
@@ -264,17 +297,17 @@ public class SpaceGameApp extends GameApplication{
                     System.out.println("Couldn't save: " + e.getMessage());
                 }
 
-        });
+            });
         }
         else{
             getDialogService().showMessageBox("You died and didn't get the high score, better luck next time!");
-            }
+        }
 
     }
 
 
 
-        public static void main(String[] args){
+    public static void main(String[] args){
         // runs app
         launch(args);
     }
