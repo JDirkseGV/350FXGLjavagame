@@ -77,6 +77,19 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .collidable()
                 .build();
     }
+
+    @Spawns("gunUpgrade")
+    public Entity newGunUpgrade(SpawnData data) {
+        // Constructs an asteroid from smallasteroid.png with a bounding box
+        // Adds a RandomMoveComponent with a bounding Rectangle2D object to each spawned asteroid
+        return entityBuilder()
+                .type(EntityType.UPGRADE)
+                .from(data)
+                .viewWithBBox("lives.png")
+                .with(new RandomMoveComponent(new Rectangle2D(0, 0, getAppWidth(), getAppHeight()), 50))
+                .collidable()
+                .build();
+    }
     /**
      * Builds a projectile entity upon calling the spawn("projectile") method in PlayerComponent().shoot()
      * @param data

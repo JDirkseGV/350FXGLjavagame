@@ -98,7 +98,7 @@ public class SpaceGameApp extends GameApplication{
         //Strafe Right
         onKey(KeyCode.RIGHT, () -> player.getComponent(PlayerComponent.class).moveRight());
         // Handle firing projectiles
-        onKeyDown(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
+        onKeyDown (KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
     }
 
     private static Random random = new Random();
@@ -130,12 +130,18 @@ public class SpaceGameApp extends GameApplication{
 
                 Entity a = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(50,300)));
                 spawnWithScale(a, Duration.seconds(.5));
-            }, Duration.seconds(random(0,2)));
+            }, Duration.seconds(1));
 
             run(() -> {
                 Entity b = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(780,1030)));
                 spawnWithScale(b, Duration.seconds(.5));
             }, Duration.seconds(1));
+
+        run(() -> {
+
+            Entity a = getGameWorld().create("gunUpgrade", new SpawnData(random(50,1850), random(50,900)));
+            spawnWithScale(a, Duration.seconds(.5));
+        }, Duration.seconds(15));
 
 
     }
@@ -151,6 +157,11 @@ public class SpaceGameApp extends GameApplication{
             killDebris(debris);
             projectile.removeFromWorld();
             inc("score", +100);
+            run(() -> {
+
+                Entity a = getGameWorld().create("asteroid", new SpawnData(random(50,1850), random(50,900)));
+                spawnWithScale(a, Duration.seconds(.5));
+            }, Duration.seconds(45));
         });
 
         onCollisionBegin(EntityType.PLAYER, EntityType.DEBRIS, (projectile, debris) -> { //if bullet and asteroid collide, remove both
@@ -160,6 +171,22 @@ public class SpaceGameApp extends GameApplication{
             if(geti("lives") <= 0){
                 gameOver();
             }
+
+
+        });
+        onCollisionBegin(EntityType.PLAYER, EntityType.UPGRADE, (player, upgrade) -> { //if bullet and asteroid collide, remove both
+            upgrade.removeFromWorld();
+            inc("lives", +1);
+
+
+            run(() -> {
+                player.getComponent(PlayerComponent.class).shoot();
+
+            }, Duration.seconds(1));
+
+
+
+
 
 
         });
@@ -221,6 +248,7 @@ public class SpaceGameApp extends GameApplication{
     }
     private void gameOver() {
         getGameController().gotoMainMenu();
+        //add ship getting destroyed animation before switching to endgame
         if(geti("highScore") < geti("score")){
         getDialogService().showInputBox("Your score:" + geti("score") + "\nEnter your name", s -> s.matches("[a-zA-Z]*"), name -> {
 
