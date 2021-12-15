@@ -29,7 +29,7 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
 public class GameEntityFactory implements EntityFactory { //inherits Entity factory from github repo
     /**
      * Builds a background entity upon calling the spawn("background") method in main()
-     * @param data
+     * @param data SpawnData
      * @return Entity
      */
     @Spawns("background")
@@ -43,7 +43,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
     }
     /**
      * Builds a player entity upon calling the spawn("player") method in main()
-     * @param data
+     * @param data SpawnData
      * @return Entity
      */
     @Spawns("player")
@@ -62,7 +62,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
     }
     /**
      * Builds an asteroid entity upon calling the spawn("asteroid") method in main()
-     * @param data
+     * @param data SpawnData
      * @return Entity
      */
     @Spawns("asteroid")
@@ -81,7 +81,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
     /**
      * Creates an Upgrade entity that looks like a heart. Gives
      * player life and projectile upgrade.
-     * @param data
+     * @param data SpawnData
      * @return Entity gunUpgrade entity
      */
     @Spawns("gunUpgrade")
@@ -98,7 +98,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
     }
     /**
      * Builds a projectile entity upon calling the spawn("projectile") method in PlayerComponent().shoot()
-     * @param data
+     * @param data SpawnData
      * @return Entity
      */
     @Spawns("projectile")
@@ -119,7 +119,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
 
     /**
      * Creates a new Explosion entity
-     * @param data
+     * @param data SpawnData
      * @return Explosion Entity
      */
     @Spawns("explosion")
@@ -135,21 +135,19 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
 
     /**
      * Creates a scoreText entity (for destruction of asteroids)
-     * @param data
+     * @param data SpawnData
      * @return scoreText Entity
      */
     @Spawns("scoreText")
     public Entity newScoreText(SpawnData data){
         String text = data.get("text");
 
-        var e = entityBuilder()
+
+        return entityBuilder()
                 .from(data)
                 .view(getUIFactory().newText(text, 24))
                 .with(new ExpireCleanComponent(Duration.seconds(0.66)))
                 .build();
-
-
-        return e;
 
     }
 }
