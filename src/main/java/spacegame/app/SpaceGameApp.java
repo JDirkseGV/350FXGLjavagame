@@ -43,6 +43,7 @@ public class SpaceGameApp extends GameApplication{
 
     // Hold player Entity
     private Entity player;
+    private PlayerComponent varplay;
 
 
     /**

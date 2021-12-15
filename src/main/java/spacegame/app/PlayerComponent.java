@@ -7,10 +7,39 @@ import javafx.geometry.Point2D;
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.spawn;
 
+
+
 /**
  * Extends Component, provides methods for control of player entity
  */
 public class PlayerComponent extends Component {
+
+    private int lives = 5;
+    private int initialScore = 0;
+
+    public int getInitialScore() {
+        return initialScore;
+    }
+
+    public void setInitialScore(int initialScore) {
+        this.initialScore = initialScore;
+    }
+    public boolean startScore(){
+        return initialScore == 0;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
+
+    public boolean startLives(){
+        return lives == 5;
+    }
+
     /**
      * On entity spawn, set the origin to the center of the entity
      */
