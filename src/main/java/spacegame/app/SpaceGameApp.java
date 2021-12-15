@@ -43,6 +43,7 @@ public class SpaceGameApp extends GameApplication{
 
     // Hold player Entity
     private Entity player;
+    private PlayerComponent varplay;
 
 
     /**
@@ -55,6 +56,7 @@ public class SpaceGameApp extends GameApplication{
         vars.put("score", 0);
         vars.put("lives", 5);
         vars.put("final", 0);
+        //varplay.setLives(geti("lives"));
     }
     // Handles spawning asteroid entity in random location
     public void spawnAsteroid() {
