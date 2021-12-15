@@ -8,9 +8,9 @@ import java.nio.file.Paths;
 public class ResourceManager {
     /**
      * Handles saving game score and loading
-     * @param data
-     * @param fileName
-     * @throws Exception
+     * @param data contains Serializable object
+     * @param fileName name of save file object
+     * @throws Exception if save or load fails
      */
     public static void save(Serializable data, String fileName) throws Exception {
         /*
