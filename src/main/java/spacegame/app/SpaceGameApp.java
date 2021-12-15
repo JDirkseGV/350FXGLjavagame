@@ -80,7 +80,7 @@ public class SpaceGameApp extends GameApplication{
     /**
      * Initializes game settings, like view window width and height, game name, and version
      * Protected
-     * @param settings
+     * @param settings GameSettings object
      */
     @Override
     protected void initSettings(GameSettings settings){ //overrides to use these settings that defines the game window
