@@ -40,26 +40,7 @@ public class PlayerComponent extends Component {
         // Translate sprite in vector direction
         entity.translate(dir);
     }
-    /**
-     * Apply slow left strafing movement to player entity
-     */
-    public void moveLeft() {
-        // Grab vector direction sprite is facing
-        Vec2 dir = Vec2.fromAngle(entity.getRotation() - 180)
-                .mulLocal(2);
-        // Translate sprite in vector direction
-        entity.translate(dir);
-    }
-    /**
-     * Apply slow right strafing movement to player entity
-     */
-    public void moveRight() {
-        // Grab vector direction sprite is facing
-        Vec2 dir = Vec2.fromAngle(entity.getRotation())
-                .mulLocal(2);
-        // Translate sprite in vector direction
-        entity.translate(dir);
-    }
+
     /**
      * Fire a projectile in direction player entity is facing, calls spawn() from
      * GameEntityFactory
