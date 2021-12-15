@@ -78,6 +78,12 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .build();
     }
 
+    /**
+     * Creates an Upgrade entity that looks like a heart. Gives
+     * player life and projectile upgrade.
+     * @param data
+     * @return Entity gunUpgrade entity
+     */
     @Spawns("gunUpgrade")
     public Entity newGunUpgrade(SpawnData data) {
         // Constructs an asteroid from smallasteroid.png with a bounding box
@@ -111,6 +117,11 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
                 .build();
     }
 
+    /**
+     * Creates a new Explosion entity
+     * @param data
+     * @return Explosion Entity
+     */
     @Spawns("explosion")
     public Entity newExplosion(SpawnData data){
         play("explosion.wav");
@@ -122,6 +133,11 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
 
     }
 
+    /**
+     * Creates a scoreText entity (for destruction of asteroids)
+     * @param data
+     * @return scoreText Entity
+     */
     @Spawns("scoreText")
     public Entity newScoreText(SpawnData data){
         String text = data.get("text");
