@@ -36,12 +36,12 @@ import java.util.Map;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 /**
- * Main game application class
+ * Main game application class, extends GameApplication class from library
  */
 
 public class SpaceGameApp extends GameApplication{
 
-
+    // Hold player Entity
     private Entity player;
 
 
@@ -56,8 +56,26 @@ public class SpaceGameApp extends GameApplication{
         vars.put("lives", 5);
         vars.put("final", 0);
     }
-
-
+    // Handles spawning asteroid entity in random location
+    public void spawnAsteroid() {
+        int x = random(0,3840);
+        int y = random(0,2160);
+        if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
+            Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
+            spawnWithScale(a, Duration.seconds(.5));
+        }
+        else{
+            Entity a = getGameWorld().create("asteroid", new SpawnData(0, 0));
+            spawnWithScale(a, Duration.seconds(.5));
+        }
+    }
+    // Spawns life and weapon upgrade drop in random location
+    public void spawnUpgrade() {
+        int x = random(0,3840);
+        int y = random(0,2160);
+        Entity a = getGameWorld().create("gunUpgrade", new SpawnData(x, y));
+        spawnWithScale(a, Duration.seconds(.5));
+    }
     /**
      * Initializes game settings, like view window width and height, game name, and version
      * Protected
@@ -65,10 +83,14 @@ public class SpaceGameApp extends GameApplication{
      */
     @Override
     protected void initSettings(GameSettings settings){ //overrides to use these settings that defines the game window
+        // Default 1920 x 1080 pixels
         settings.setWidth(1920);
         settings.setHeight(1080);
+        // Allows user to resize window
         settings.setManualResizeEnabled(true);
+        // Controls display of menu items
         settings.setEnabledMenuItems(EnumSet.allOf(MenuItem.class));
+        // Enables menu
         settings.setMenuEnabled(true);
         settings.setTitle("SpaceBlaster 3000");
         settings.setVersion("1.0");
@@ -82,16 +104,16 @@ public class SpaceGameApp extends GameApplication{
     protected void initInput() { // Initialize key controls
         // Turn Right
         onKey(KeyCode.D, () -> player.getComponent(PlayerComponent.class).rotateRight());
+        onKey(KeyCode.RIGHT, () -> player.getComponent(PlayerComponent.class).rotateRight());
+
         // Turn Left
         onKey(KeyCode.A, () -> player.getComponent(PlayerComponent.class).rotateLeft());
+        onKey(KeyCode.LEFT, () -> player.getComponent(PlayerComponent.class).rotateLeft());
+
         // Move forward
         onKey(KeyCode.W, () -> player.getComponent(PlayerComponent.class).move());
-        // Speed boost
-        onKey(KeyCode.C, () -> player.getComponent(PlayerComponent.class).move());
-        // Strafe Left
-        onKey(KeyCode.LEFT, () -> player.getComponent(PlayerComponent.class).moveLeft());
-        //Strafe Right
-        onKey(KeyCode.RIGHT, () -> player.getComponent(PlayerComponent.class).moveRight());
+        onKey(KeyCode.UP, () -> player.getComponent(PlayerComponent.class).move());
+
         // Handle firing projectiles
         onKeyDown(KeyCode.SPACE, () -> player.getComponent(PlayerComponent.class).shoot());
     }
@@ -104,6 +126,7 @@ public class SpaceGameApp extends GameApplication{
     public static int random(int start, int end) {
         return start + random.nextInt(end - start + 1);
     }
+
     /**
      * Initializes game. Calls getGameWorld(), spawns background, player entity, and asteroids
      */
@@ -127,71 +150,20 @@ public class SpaceGameApp extends GameApplication{
         getGameScene().getViewport().bindToEntity(player, (getAppWidth() / 2)-(64), (getAppHeight() / 2)-(64));
 
         // Spawns 4 asteroids in random locations every 1 second
+
         run(() -> {
-            int x = random(0,3840);
-            int y = random(0,2160);
-            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
-                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
-                spawnWithScale(a, Duration.seconds(.5));
-            }
-            else{
-                Entity a = getGameWorld().create("asteroid", new SpawnData(0, 0));
-                spawnWithScale(a, Duration.seconds(.5));
+            for(int k = 0; k < 4; k++) {
+                spawnAsteroid();
             }
         }, Duration.seconds(1));
 
-        run(() -> {
-            int x = random(0,3840);
-            int y = random(0,2160);
-            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
-                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
-                spawnWithScale(a, Duration.seconds(.5));
-            }
-            else{
-                Entity a = getGameWorld().create("asteroid", new SpawnData(0, 0));
-                spawnWithScale(a, Duration.seconds(.5));
-            }
-        }, Duration.seconds(1));
-
-        run(() -> {
-            int x = random(0,3840);
-            int y = random(0,2160);
-            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
-                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
-                spawnWithScale(a, Duration.seconds(.5));
-            }
-            else{
-                Entity a = getGameWorld().create("asteroid", new SpawnData(0, 0));
-                spawnWithScale(a, Duration.seconds(.5));
-            }
-        }, Duration.seconds(1));
-
-        run(() -> {
-            int x = random(0,3840);
-            int y = random(0,2160);
-            if((Math.abs(player.getX()-x) > 100) && (Math.abs(player.getY()-y) > 100)){
-                Entity a = getGameWorld().create("asteroid", new SpawnData(x, y));
-                spawnWithScale(a, Duration.seconds(.5));
-            }
-            else{
-                Entity a = getGameWorld().create("asteroid", new SpawnData(1920, 1080));
-                spawnWithScale(a, Duration.seconds(.5));
-            }
-        }, Duration.seconds(1));
 
         //spawn 2 gun and life upgrades every 15 seconds
         run(() -> {
-            int x = random(0,3840);
-            int y = random(0,2160);
-            Entity a = getGameWorld().create("gunUpgrade", new SpawnData(x, y));
-            spawnWithScale(a, Duration.seconds(.5));
+            spawnUpgrade();
+            spawnUpgrade();
         }, Duration.seconds(15));
-        run(() -> {
-            int x = random(0,3840);
-            int y = random(0,2160);
-            Entity a = getGameWorld().create("gunUpgrade", new SpawnData(x, y));
-            spawnWithScale(a, Duration.seconds(.5));
-        }, Duration.seconds(15));
+
     }
 
     /**
