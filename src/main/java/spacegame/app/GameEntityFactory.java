@@ -1,8 +1,5 @@
 package spacegame.app;
 
-import com.almasb.fxgl.animation.Interpolators;
-import com.almasb.fxgl.dsl.FXGL;
-import com.almasb.fxgl.dsl.FXGLForKtKt;
 import com.almasb.fxgl.dsl.components.ExpireCleanComponent;
 import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.dsl.components.ProjectileComponent;
@@ -13,20 +10,13 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import com.almasb.fxgl.dsl.AnimationBuilder;
-import javafx.animation.Interpolator;
-import com.almasb.fxgl.animation.EasingInterpolator;
-import com.almasb.fxgl.animation.Interpolators;
-
-
 import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
 
 /**
  * Class handles creation of game object entities, such as Asteroids, Player, Background, and Projectiles
  */
-public class GameEntityFactory implements EntityFactory { //inherits Entity factory from github repo
+public class GameEntityFactory implements EntityFactory { //inherits Entity factory from GitHub repo
     /**
      * Builds a background entity upon calling the spawn("background") method in main()
      * @param data SpawnData
@@ -35,7 +25,6 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
     @Spawns("background")
     public Entity newBackground(SpawnData data) {
         // builds an entity, background, using SpawnData
-        // Uses spacebackground.png as a resource
         return entityBuilder()
                 .from(data)
                 .view("openspace.jpg")
@@ -51,7 +40,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
         // builds an entity, player, using SpawnData
         // Uses smallspaceship.png as a resource
         // Creates a bounding box around the png
-        // Atachess PlayerComponent
+        // Attaches PlayerComponent
         return entityBuilder()
                 .type(EntityType.PLAYER)
                 .from(data)
@@ -86,7 +75,7 @@ public class GameEntityFactory implements EntityFactory { //inherits Entity fact
      */
     @Spawns("gunUpgrade")
     public Entity newGunUpgrade(SpawnData data) {
-        // Constructs an asteroid from smallasteroid.png with a bounding box
+        // Constructs an asteroid with a bounding box
         // Adds a RandomMoveComponent with a bounding Rectangle2D object to each spawned asteroid
         return entityBuilder()
                 .type(EntityType.UPGRADE)

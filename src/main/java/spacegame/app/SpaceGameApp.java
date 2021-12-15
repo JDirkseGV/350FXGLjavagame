@@ -3,37 +3,16 @@ package spacegame.app;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.app.MenuItem;
-import com.almasb.fxgl.core.math.FXGLMath;
-import com.almasb.fxgl.core.serialization.Bundle;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
-import com.almasb.fxgl.profile.DataFile;
-import com.almasb.fxgl.profile.SaveLoadHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
-import javafx.scene.text.*;
 import javafx.scene.text.Text;
-
 import javafx.util.Duration;
-
-import com.almasb.fxgl.app.GameApplication;
-import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.app.MenuItem;
-import com.almasb.fxgl.core.serialization.Bundle;
-import com.almasb.fxgl.profile.DataFile;
-import com.almasb.fxgl.profile.SaveLoadHandler;
-import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
-import javafx.util.Duration;
-
 import java.util.*;
-
 import static com.almasb.fxgl.dsl.FXGL.*;
-
 import java.util.EnumSet;
 import java.util.Map;
-
-import static com.almasb.fxgl.dsl.FXGL.*;
 
 /**
  * Main game application class, extends GameApplication class from library
@@ -43,8 +22,6 @@ public class SpaceGameApp extends GameApplication{
 
     // Hold player Entity
     private Entity player;
-    private PlayerComponent varplay;
-
 
     /**
      * Initializes game variables. score, lives, etc
@@ -80,7 +57,7 @@ public class SpaceGameApp extends GameApplication{
     /**
      * Initializes game settings, like view window width and height, game name, and version
      * Protected
-     * @param settings
+     * @param settings game settings
      */
     @Override
     protected void initSettings(GameSettings settings){ //overrides to use these settings that defines the game window
@@ -120,10 +97,8 @@ public class SpaceGameApp extends GameApplication{
     }
 
     //custom implementation of RNG for finer control than the library allows
-    private static Random random = new Random();
-    public static void setRandom(Random random) {
-        SpaceGameApp.random = random;
-    }
+    private static final Random random = new Random();
+
     public static int random(int start, int end) {
         return start + random.nextInt(end - start + 1);
     }
@@ -142,13 +117,13 @@ public class SpaceGameApp extends GameApplication{
         spawn("background", -960, -540);
 
         // Spawns player spaceship
-        player = spawn("player", (getAppWidth()/2)-(64),(getAppHeight()/2)-(64));
+        player = spawn("player", (getAppWidth()/2.0)-(64),(getAppHeight()/2.0)-(64));
 
         //sets up the panning camera and the limits
         int distx = 960;
         int disty = 540;
         getGameScene().getViewport().setBounds(-distx, -disty, getAppWidth() + distx, getAppHeight() + disty);
-        getGameScene().getViewport().bindToEntity(player, (getAppWidth() / 2)-(64), (getAppHeight() / 2)-(64));
+        getGameScene().getViewport().bindToEntity(player, (getAppWidth()/2.0)-(64), (getAppHeight()/2.0)-(64));
 
         // Spawns 4 asteroids in random locations every 1 second
 
@@ -202,7 +177,7 @@ public class SpaceGameApp extends GameApplication{
             inc("lives", -1);
             if(geti("lives") <= 0){
                 run(() -> {
-                    if (geti("final") < 1) { //if no more lives, make extra big explosion before ending the game
+                    if (geti("final") < 1) { //if no more lives, make extra large explosion before ending the game
                         spawn("explosion", new SpawnData(player.getX() + 25, player.getY() + 25));
                         spawn("explosion", new SpawnData(player.getX() - 25, player.getY() - 25));
                         spawn("explosion", new SpawnData(player.getX() + 25, player.getY() - 25));
@@ -221,9 +196,7 @@ public class SpaceGameApp extends GameApplication{
         onCollisionBegin(EntityType.PLAYER, EntityType.UPGRADE, (player, upgrade) -> {
             upgrade.removeFromWorld();
             inc("lives", +1);
-            run(() -> {
-                player.getComponent(PlayerComponent.class).shoot();
-            }, Duration.seconds(1));
+            run(() -> player.getComponent(PlayerComponent.class).shoot(), Duration.seconds(1));
         });
 
     }
@@ -241,17 +214,17 @@ public class SpaceGameApp extends GameApplication{
     @Override
     protected void initUI() {
         String name = "";
-        //load from save data for highscore if possible
+        //load from save data for high score if possible
         try{
             SaveData data = (SaveData) ResourceManager.load("1.save");
-            inc("highScore", +(data.highScore));
+            inc("highScore", (data.highScore));
             name = data.name;
         }
         catch (Exception e){
             System.out.println("Couldn't load save data: " + e.getMessage());
         }
 
-        //display someones name if theres a highscore
+        //display someone's name if there's a high score
         var nameText = getUIFactoryService().newText("", Color.WHITE, 24.0);
         nameText.setTranslateX(1600);
         nameText.setTranslateY(65);
@@ -261,7 +234,7 @@ public class SpaceGameApp extends GameApplication{
         var hscoreText = getUIFactoryService().newText("", Color.WHITE, 24.0);
         hscoreText.setTranslateX(1600);
         hscoreText.setTranslateY(100);
-        hscoreText.textProperty().bind(getip("highScore").asString("Highscore: %d"));
+        hscoreText.textProperty().bind(getip("highScore").asString("High score: %d"));
 
         //keep a time counter running so player can see how they've lasted
         var time = getUIFactoryService().newText("", Color.WHITE, 32.0);

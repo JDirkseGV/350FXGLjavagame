@@ -1,6 +1,5 @@
 package spacegame.app;
 
-import com.almasb.fxgl.entity.GameWorld;
 import org.junit.Test;
 
 public class PlayerComponentTest {
